@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-    <title>Chat Embed</title>
+    <title>Custom n8n Chat</title>
+    <style>
+        /* Custom CSS variables for the chat */
+        :root {
+            --chat--color-primary: #e74266;
+            --chat--color-secondary: #20b69e;
+            --chat--color-white: #ffffff;
+            /* Add more custom styles as needed */
+        }
+    </style>
 </head>
 <body>
     <script type="module">
         import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
         createChat({
-            webhookUrl: 'https://fcsl.app.n8n.cloud/webhook/e985d15f-b2f6-456d-be15-97e0b1544a40/chat'
+            webhookUrl: 'https://fcsl.app.n8n.cloud/webhook/9ba11544-5c4e-4f91-818a-08a4ecb596c5',
+            webhookConfig: {
+                method: 'POST',
+                headers: {
+                    'Authorization': '5d56dsfsd576ds3dsf24ds35gdfsh' // Replace with your actual token
+                }
+            },
+            showWelcomeScreen: true,
+            initialMessages: [
+                'Hi there! 👋',
+                'My name is Carl-Bot. What FCSL Knowledge can I impart today?'
+            ],
+            defaultLanguage: 'en'
+            // Add more options as needed
         });
     </script>
 </body>
